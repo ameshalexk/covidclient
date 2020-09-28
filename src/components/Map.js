@@ -6,8 +6,8 @@ import ReactMapGl, { Marker } from "react-map-gl";
 const Map = (props) => {
   // console.log(props,false);
   const [viewport, setViewport] = useState({
-    latitude: 31.054487,
-    longitude: -97.563461,
+    latitude: 26.0275,
+    longitude: 50.55,
     zoom: 10,
     width: "50vw",
     height: "50vh",
@@ -22,45 +22,35 @@ const Map = (props) => {
           setViewport(viewport);
         }}
       >
-        
-        
-          {Object.entries(props.purchases).map((dater, i) => {
-            if (i === 6) {
-              return dater[1].map((date, j) => {
-                Object.entries(date).map((dat, k) => {
-                  if (k === 1) {
-                    return dat.map((da, l) => {
-                      if (l === 1) {
-                        return (
-                          <Marker
-                            key={da.x}
-                            latitude={da.y}
-                            longitude={da.x}
-                          >
-                            <div>SKATE</div> {console.log(da.x)}
-                          </Marker>
-                        );
-                      }
-                    });
-                  }
-                });
-                
-              });
-            }
-          })}
-        
+        {Object.entries(props.purchases).forEach((dater, i) => {
+          if (i === 6) {
+            return (dater[1].forEach((date, j) => {
+              return (Object.entries(date).forEach((dat, k) => {
+                if (k === 0) {
+                  return (dat.forEach((da, l) => {
+                    if (l === 1) {
+                      console.log(da);
+                      return (
+                        <Marker
+                          key={da.lat}
+                          latitude={da.Lat}
+                          longitude={da.Long_}
+                        >
+                          <div>SKATE</div>
+                        </Marker>
+                      )
+                    }
+                  }))
+                }
+              }))
+            }))
+          }
+        })}
       </ReactMapGl>
-      {/* <div className='sidebarStyle'>
-          <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
-        </div>
-        <div ref={el => this.mapContainer = el} className='mapContainer' /> */}
     </div>
   );
 };
 export default Map;
-
-
-
 
 // import React, { useState } from "react";
 // // import ReactDOM from 'react-dom';
@@ -101,8 +91,7 @@ export default Map;
 //           setViewport(viewport);
 //         }}
 //       >
-        
-        
+
 //           {Object.entries(props.purchases).map((dater, i) => {
 //             if (i === 6) {
 //               return dater[1].map((date, j) => {
@@ -123,11 +112,11 @@ export default Map;
 //                     });
 //                   }
 //                 });
-                
+
 //               });
 //             }
 //           })}
-        
+
 //       </ReactMapGl>
 //       {/* <div className='sidebarStyle'>
 //           <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
