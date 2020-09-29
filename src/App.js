@@ -90,9 +90,10 @@ function App() {
 
 
     return (
-        <>
-        <Navbar isLoggedIn={isLoggedIn} logOut={handleLogOut}></Navbar>
-        
+        <div className="containerapp">
+    
+        <Navbar className="navbar" isLoggedIn={isLoggedIn} logOut={handleLogOut}></Navbar>
+        <div className="mapcontainer">   
         <Switch>
                     <Route
                         path="/signup"
@@ -136,7 +137,8 @@ function App() {
                         }}
                     />
                 </Switch>
-        </>
+                </div>
+        </div>
     );
 }
 
