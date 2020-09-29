@@ -21,12 +21,10 @@ const Portfolio = (props) => {
   }, []);
 
   return (
-    <div className="portfoliocontainerchild2">
+    <div className="maincontainer">
       <div>
-        <div className="sidebarStyle">
         </div>
         <Map purchases={purchases}> </Map>
-      </div>
     </div>
   );
 };
