@@ -1,7 +1,7 @@
 nav {
     background: #0371b8;
     padding: 0 2% 0 2%;
-    text-align: right;
+    text-align: left;
     color: #0371b8
 }
 
@@ -18,7 +18,8 @@ nav a {
 } */
 
 nav li {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin: 20px;
     width: 100px;
 }
@@ -33,7 +34,7 @@ h1 {
 }
 
 #navtitle {
-    text-align: center;
+    text-align: right;
 }
 
 #navbarname {
