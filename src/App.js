@@ -27,11 +27,11 @@ function App() {
         event.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3000/users/signup",
-                {
+                "http://localhost:3000/users",
+                {user: {
                     username: state.username,
                     password: state.password,
-                }
+                }}
             );
             console.log(response);
             localStorage.token = response.data.token;
