@@ -3,8 +3,7 @@ import axios from "axios";
 import Map from "./Map.js";
 
 const Portfolio = (props) => {
-  const [purchases, setPurchases] = useState([]);
-
+  const [purchases, setPurchases] = useState({});
   // populate purchase data
   useEffect(() => {
     (async () => {
@@ -20,14 +19,11 @@ const Portfolio = (props) => {
       }
     })();
   }, []);
-//   const { features: lol } = purchases;
 
   return (
     <div className="portfoliocontainerchild2">
-      {/* <h1> Map : {console.log(lol)}</h1> */}
       <div>
         <div className="sidebarStyle">
-          
         </div>
         <Map purchases={purchases}> </Map>
       </div>
