@@ -27,7 +27,7 @@ function App() {
         event.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3000/users",
+                "https://covidmapperapi.herokuapp.com/users",
                 {user: {
                     username: state.username,
                     password: state.password,
@@ -47,7 +47,7 @@ function App() {
         event.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3000/users/login",
+                "https://covidmapperapi.herokuapp.com/users/login",
                 {user: {
                     username: state.username,
                     password: state.password,
