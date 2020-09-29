@@ -126,7 +126,7 @@ function App() {
                     <Route
                         path="/"
                         render={(props) => {
-                            return <Main />;
+                            return <Main isLoggedIn={isLoggedIn}/>;
                         }}
                     />
                 </Switch>
