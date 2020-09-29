@@ -13,10 +13,11 @@ function NavBar(props) {
                 <a href="/" onClick={props.logOut}>
                     Log Out
                 </a>
-            </li>,
-            <li className="navbar-item" key={3}>
-                <a href="/portfolio">Portfolio</a>
             </li>
+            // ,
+            // <li className="navbar-item" key={3}>
+            //     <a href="/portfolio">Portfolio</a>
+            // </li>
         );
     } else {
         navBarItems.push(

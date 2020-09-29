@@ -13,7 +13,7 @@ function SignUpForm(props) {
         
         
           <label htmlFor="password">Password</label>
-          <input className="input" type="text" name="password" onChange={props.handleInput} />
+          <input className="input" type="password" name="password" onChange={props.handleInput} />
         
         <input className="button" value="Submit" type="submit" onClick={props.handleSignUp} />
       </form>

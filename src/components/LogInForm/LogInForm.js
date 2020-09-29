@@ -17,7 +17,7 @@ function LogInForm(props) {
                 <label htmlFor="password">Password</label>
                 <input
                     className="input"
-                    type="text"
+                    type="password"
                     name="password"
                     onChange={props.handleInput}
                 />

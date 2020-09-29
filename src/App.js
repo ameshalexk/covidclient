@@ -33,10 +33,12 @@ function App() {
                     password: state.password,
                 }}
             );
-            console.log(response);
+            // if(response.data.token){
+
             localStorage.token = response.data.token;
             setIsLoggedIn(true);
-            history.push("/portfolio");
+        // }
+        history.push("/");
         } catch (err) {
             console.log(err);
         }
@@ -53,10 +55,14 @@ function App() {
                     password: state.password,
                 }}
             );
-            console.log(response);
-            localStorage.token = response.data.token;
-            setIsLoggedIn(true);
-            history.push("/");
+            if(response.data.token){
+                localStorage.token = response.data.token;
+                setIsLoggedIn(true);
+                history.push("/");
+
+            }
+            
+            
         }  catch (error) {
             console.log(error);
         }

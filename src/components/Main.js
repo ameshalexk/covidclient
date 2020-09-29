@@ -25,7 +25,7 @@ const Portfolio = (props) => {
     <div className="maincontainer">
       <div>
         </div>
-        {props.isLoggedIn? <Map purchases={purchases}> </Map> : null } 
+        {props.isLoggedIn ? <Map purchases={purchases}> </Map> : <div> Please log In</div> } 
         
     </div>
   );
