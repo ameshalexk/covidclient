@@ -6,11 +6,11 @@ function LogInForm(props) {
         <div className="loginform">
             <h2>Log In</h2>
             <form>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="username">Email</label>
                 <input
                     className="input"
                     type="text"
-                    name="email"
+                    name="username"
                     onChange={props.handleInput}
                 />
 

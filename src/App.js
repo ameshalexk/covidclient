@@ -33,7 +33,7 @@ function App() {
                     password: state.password,
                 }
             );
-            // console.log(response);
+            console.log(response);
             localStorage.token = response.data.token;
             setIsLoggedIn(true);
             history.push("/portfolio");
@@ -48,11 +48,21 @@ function App() {
         try {
             const response = await axios.post(
                 "http://localhost:3000/users/login",
-                {
-                    username: state.username,
-                    password: state.password,
+                {   
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username: state.username,
+                        password: state.password
+                    }),
+                    headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                    }
+                    
                 }
             );
+            console.log(response.data.token);
+            console.log(response);
             localStorage.token = response.data.token;
             setIsLoggedIn(true);
             history.push("/portfolio");
@@ -125,7 +135,7 @@ function App() {
                     <Route
                         path="/"
                         render={(props) => {
-                            return <Main />;
+                            return <Main isLoggedIn={isLoggedIn}/>;
                         }}
                     />
                 </Switch>

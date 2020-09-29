@@ -9,7 +9,7 @@ function SignUpForm(props) {
       <form>
         
           <label htmlFor="email">Email</label>
-          <input className="input" type="text" name="email" onChange={props.handleInput} />
+          <input className="input" type="text" name="username" onChange={props.handleInput} />
         
         
           <label htmlFor="password">Password</label>
