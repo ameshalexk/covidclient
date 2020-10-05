@@ -47,7 +47,7 @@ const Map = (props) => {
     height: "100vh",
   });
 
-  const [selectedPark, setSelectedPark] = useState(null);
+  const [city, setCity] = useState(null);
 
   return (
     <div>
@@ -65,7 +65,7 @@ const Map = (props) => {
         <div style={geolocateStyle}>
           <GeolocateControl />
         </div>
-        
+
         {Object.entries(covidData).map((el, i) => {
           if (i === 6) {
             return el.map((e, j) => {
@@ -78,10 +78,10 @@ const Map = (props) => {
                           return (
                             <Marker key={t.Deaths} latitude={t.Lat} longitude={t.Long_}>
                               <div onClick={e => {e.preventDefault();
-                               setSelectedPark(t);}}>
+                               setCity(t);}}>
                                 {t.Active > 1000 ? <div>🔴</div> : <div>🟢</div>}
-                              </div>                          
-                            </Marker>                            
+                              </div>
+                            </Marker>
                           );
                         }
                       });
@@ -93,24 +93,24 @@ const Map = (props) => {
           }
         })
         }
-        {selectedPark ? (<Popup latitude={selectedPark.Lat} longitude={selectedPark.Long_} onClose={() => {
-          setSelectedPark(null);}} >
+        {city ? (<Popup latitude={city.Lat} longitude={city.Long_} onClose={() => {
+          setCity(null);}} >
             <div>
-              <h2>{`(${selectedPark.Province_State?selectedPark.Province_State : 'Data Not Available'})`}</h2>
+              <h2>{`(${city.Province_State?city.Province_State : 'Data Not Available'})`}</h2>
               <div style={{
-                color: `rgb(${selectedPark.Deaths>255? 255 : 255},${selectedPark.Deaths>255? 0 : 255},${selectedPark.Deaths>255? 0 : 255})`
-                }}>📍{selectedPark.Deaths}
+                color: `rgb(${city.Deaths>255? 255 : 255},${city.Deaths>255? 0 : 255},${city.Deaths>255? 0 : 255})`
+                }}>Deaths: 📍{city.Deaths}
                 </div>
-              <p> 
-                Confirmed Cases : {selectedPark.Confirmed}
+              <p>
+                Confirmed Cases : {city.Confirmed}
                 </p>
-              <p> 
-                Active Cases : {selectedPark.Active}
+              <p>
+                Active Cases : {city.Active}
                 </p>
             </div>
           </Popup>
         ) : null}
-        
+
       </ReactMapGl>
     </div>
   );
